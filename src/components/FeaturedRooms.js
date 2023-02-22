@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
+
 import { RoomContext } from "../context";
 import Title from "./Title";
 import Room from "./Room";
 import Loading from "./Loading";
 
 const FeaturedRooms = () => {
-  const value = useContext(RoomContext);
-  //console.log(value);
-  let { loading, featuredRooms: rooms } = value;
-  //console.log(loading, rooms);
+  let { loading, featuredRooms: rooms } = useContext(RoomContext);
+  console.log(rooms);
   rooms = rooms.map((room) => {
     return <Room key={room.id} room={room} />;
   });
