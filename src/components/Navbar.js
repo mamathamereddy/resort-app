@@ -27,9 +27,6 @@ const Navbar = () => {
           <li>
             <Link to="/rooms">Rooms</Link>
           </li>
-          <li>
-            <Link to="/bookingForm">Book Now</Link>
-          </li>
         </ul>
       </div>
     </nav>

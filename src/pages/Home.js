@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Hero hero="defaultHero">
         <Banner
-          tittle="ROOMS AT YOUR BUDGET"
+          title="ROOMS AT YOUR BUDGET"
           subtitle="convinient and comfort rooms starts at 1000 dk"
         >
           <Link to="/rooms" className="btn-primary">
