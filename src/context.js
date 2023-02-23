@@ -70,12 +70,19 @@ function RoomProvider(props) {
     let { rooms, type, capacity } = state;
     console.log(type);
     let tempRooms = [...rooms];
+    // transform values
+    // get capacity
+    capacity = parseInt(capacity);
 
     // filter by type
     if (type !== "all") {
       tempRooms = tempRooms.filter((room) => room.type === type);
     }
 
+    // filter by capacity
+    if (capacity !== 1) {
+      tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
+    }
     setState(
       {
         ...state,
@@ -83,7 +90,7 @@ function RoomProvider(props) {
       },
       state
     );
-  }, [state.type]);
+  }, [state.type, state.capacity]);
 
   return (
     <RoomContext.Provider

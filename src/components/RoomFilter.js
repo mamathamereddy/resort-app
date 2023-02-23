@@ -59,6 +59,20 @@ const RoomFilter = ({ rooms }) => {
           </select>
         </div>
         {/* end of select type */}
+        {/* guest type */}
+        <div className="form-group">
+          <label htmlFor="capacity">Guests</label>
+          <select
+            name="capacity"
+            id="capacity"
+            onChange={handleChange}
+            className="form-control"
+            value={capacity}
+          >
+            {people}
+          </select>
+        </div>
+        {/* end of guest type */}
       </form>
     </section>
   );
