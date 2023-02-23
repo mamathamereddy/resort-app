@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Banner from "../components/Banner";
 import { Link, useParams } from "react-router-dom";
 import { RoomContext } from "../context";
@@ -34,7 +34,7 @@ const SingleRoom = () => {
       "description:" + room.description,
       "capacity:" + room.capacity
     );
-    const [main, ...defaultImages] = images;
+    const [...defaultImages] = images;
 
     return (
       <>

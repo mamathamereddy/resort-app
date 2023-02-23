@@ -105,8 +105,6 @@ function RoomProvider(props) {
       type,
       capacity,
       price,
-      minPrice,
-      maxPrice,
       minSize,
       maxSize,
       breakfast,
@@ -158,8 +156,7 @@ function RoomProvider(props) {
     state.price,
     state.breakfast,
     state.pets,
-    state.minPrice,
-    state.maxPrice,
+
     state.minSize,
     state.maxSize,
   ]);
