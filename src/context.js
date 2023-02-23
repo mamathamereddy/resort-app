@@ -109,7 +109,7 @@ function RoomProvider(props) {
       breakfast,
       pets,
     } = state;
-    console.log(type);
+
     let tempRooms = [...rooms];
     // transform values
     // get capacity
