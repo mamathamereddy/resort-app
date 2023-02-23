@@ -67,12 +67,13 @@ function RoomProvider(props) {
   };
 
   const filterRooms = useMemo(() => {
-    let { rooms, type, capacity } = state;
+    let { rooms, type, capacity, price } = state;
     console.log(type);
     let tempRooms = [...rooms];
     // transform values
     // get capacity
     capacity = parseInt(capacity);
+    price = parseInt(price);
 
     // filter by type
     if (type !== "all") {
@@ -83,6 +84,10 @@ function RoomProvider(props) {
     if (capacity !== 1) {
       tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
     }
+
+    // filter by price
+    tempRooms = tempRooms.filter((room) => room.price <= price);
+
     setState(
       {
         ...state,
@@ -90,7 +95,7 @@ function RoomProvider(props) {
       },
       state
     );
-  }, [state.type, state.capacity]);
+  }, [state.type, state.capacity, state.price]);
 
   return (
     <RoomContext.Provider
