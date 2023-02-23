@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import defaultImg from "../images/room-1.jpeg";
 import { memo } from "react";
 
-const Room = memo(({ room }) => {
+const Room = ({ room }) => {
   const { name, slug, images, price } = room;
-
+  console.log(name, slug, images, price + "from room");
   return (
     <article className="room">
       <div className="img-container">
@@ -21,6 +21,6 @@ const Room = memo(({ room }) => {
       <p className="room-info">{name}</p>
     </article>
   );
-});
+};
 
 export default Room;

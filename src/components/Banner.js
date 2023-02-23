@@ -1,9 +1,9 @@
 import React from "react";
 
-const Banner = ({ children, tittle, subtitle }) => {
+const Banner = ({ children, title, subtitle }) => {
   return (
     <div className="banner">
-      <h2>{tittle}</h2>
+      <h2>{title}</h2>
       <div />
       <p>{subtitle}</p>
       {children}
