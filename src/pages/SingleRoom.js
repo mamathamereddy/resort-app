@@ -29,11 +29,7 @@ const SingleRoom = () => {
       pets,
       images,
     } = room;
-    console.log(
-      "Name:" + room.name,
-      "description:" + room.description,
-      "capacity:" + room.capacity
-    );
+
     const [...defaultImages] = images;
 
     return (
