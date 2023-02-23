@@ -1,13 +1,24 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useEffect, useState, createContext, useMemo } from "react";
 import items from "./data";
 
 export const RoomContext = createContext();
 
 function RoomProvider(props) {
-  const [rooms, setRooms] = useState([]);
-  const [sortedRooms, setSortedRooms] = useState([]);
-  const [featuredRooms, setFeaturedRooms] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState({
+    rooms: [],
+    sortedRooms: [],
+    featuredRooms: [],
+    loading: false,
+    type: "all",
+    capacity: 1,
+    price: 0,
+    minPrice: 0,
+    maxPrice: 0,
+    minSize: 0,
+    maxSize: 0,
+    breakfast: false,
+    pets: false,
+  });
 
   const formatData = (items) => {
     let tempItems = items.map((item) => {
@@ -22,21 +33,65 @@ function RoomProvider(props) {
   useEffect(() => {
     let rooms = formatData(items);
     let featuredRooms = rooms.filter((room) => room.featured === true);
-    setRooms(rooms);
-    setFeaturedRooms(featuredRooms);
-    setSortedRooms(rooms);
-    setLoading(false);
+    let maxPrice = Math.max(...rooms.map((item) => item.price));
+    let maxSize = Math.max(...rooms.map((item) => item.size));
+    setState({
+      ...state,
+      rooms,
+      featuredRooms,
+      sortedRooms: rooms,
+      loading: false,
+      price: maxPrice,
+      maxPrice,
+      maxSize,
+    });
   }, []);
 
   const getRoom = (slug) => {
-    let tempRooms = [...rooms];
+    let tempRooms = [...state.rooms];
     const room = tempRooms.find((room) => room.slug === slug);
     return room;
   };
+  const handleChange = (event) => {
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    setState(
+      {
+        ...state,
+        [name]: value,
+      },
+      filterRooms
+    );
+  };
+
+  const filterRooms = useMemo(() => {
+    let { rooms, type, capacity } = state;
+    console.log(type);
+    let tempRooms = [...rooms];
+
+    // filter by type
+    if (type !== "all") {
+      tempRooms = tempRooms.filter((room) => room.type === type);
+    }
+
+    setState(
+      {
+        ...state,
+        sortedRooms: tempRooms,
+      },
+      state
+    );
+  }, [state.type]);
 
   return (
     <RoomContext.Provider
-      value={{ rooms, featuredRooms, sortedRooms, loading, getRoom }}
+      value={{
+        ...state,
+        getRoom,
+        handleChange,
+      }}
     >
       {props.children}
     </RoomContext.Provider>
