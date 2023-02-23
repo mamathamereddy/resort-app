@@ -29,6 +29,9 @@ function RoomProvider(props) {
     try {
       let response = await Client.getEntries({
         content_type: "resort",
+        // order:"sys.createsAt"
+        order: "fields.price", //sorting the rooms low to high price
+        //order: "-fields.price", //sorting the rooms from high to low  price
       });
       let rooms = formatData(response.items);
       let featuredRooms = rooms.filter((room) => room.featured === true);
