@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+### resort app with react and contententful
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Running the app:
 
-## Available Scripts
+1. cd <project_folder>
 
-In the project directory, you can run:
+2. Install packages
 
-### `npm start`
+```
+npm i
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. To run the app:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm start
+```
 
-### `npm test`
+### `About the application`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application is designed on idea of displaying hotel rooms and setup a filter functionality so thet the use can filter as of their requirement
 
-### `npm run build`
+in the project we use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`react-router`for routing
+`react-context`api for state managent
+`contentful`headless CMS for data managment
+and `netlify`to host the application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `what in the world it is build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+First and foremost the application is responsive since i donot want to jump back and forth for every section
 
-### `npm run eject`
+### `Home page`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For the nav bar on a smaller screen size i have a toggle button but once we are on bigger screens we will have a traditional nav bar
+right after the nav bar on home page we will have a hero component that will have a background image and in middle of hero component we will have a banner that has a link to route to our rooms page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+below the hero we will have a`serice section`
+where we use react-icons to display the services that the hotel provide
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`featured room`
+After that we will have a featured room section that wil have data for all the rooms of hotel but some rooms hotel wants to show as fetured so this will display the featured rooms
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+In both the pages for featured and our rooms together we will be using a room component to display that specific room and as you notice in the room component.we will have price for the room and name for the room
+as we hvor over the card we will have a option of clicking and then we will navigate to a single room page where we will have information of just about the specific room weather that will be family delux room or single delux
 
-## Learn More
+### `404 page`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Since we are using a react-router if we navigate to a page that doesnot exist we will create a custom 404 page where we have an option of ruturn to home from the link or from nav bar.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `Rooms page`
 
-### Code Splitting
+If we head over to the rooms page we will have all the rooms that currently hotel provides as well as since we have multiple rooms the user will also have an option of filtering them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+lets say iam intrested in family rooms select family this will display all the family rooms that hotel provides as i previously said we still have the acess to single room page(featues)where we navigate to that specific room
 
-### Analyzing the Bundle Size
+we also have an option of filtering more lets say we jugge by price and if we go below the price that iam looking for
+notice it says "unfortunately no rooms matched"
+what that means --if we do have the no rooms to display that match the serch parameter that will be the error msg
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+we can filter our romms even more for family rooms that provide breakfast as well as the pets
+how ever i can also check for both or either one of them (breakfast/pets)
 
-### Making a Progressive Web App
+then i would be also intrested to stay with 4 people lets e
+see which rooms allow 4 people
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Data and Deployment
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Initially i worked with local data and then moved the data to contentful
+and at last hosted the app in netlify
