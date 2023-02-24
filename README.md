@@ -1,4 +1,4 @@
-### resort app with react and contententful
+### Resort app with react and contententful
 
 Running the app:
 
